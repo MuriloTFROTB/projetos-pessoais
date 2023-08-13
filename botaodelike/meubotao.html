@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testando botao </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            height: 100%;
+            width: 100%;
+            
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        .botao{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .like,
+        .deslike{
+            background-color: black;
+            color: white;
+            border: none;
+            width: 80px;
+            height: 50px;
+            border-radius: 25px;
+            margin-top: 10px;
+        }
+        .foto{
+            height: 200px;
+            width: 800px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="imagem">
+                <img class="foto" src="https://i.pinimg.com/564x/4a/cc/63/4acc63e2a2862d1908c0cf163f6fc000.jpg" alt="">
+            </div>
+            <div class="botao">
+                <button class="btn like">Like: <span class="avaliacao">0</span></button>
+                <button class="btn deslike">Deslike: <span class="avaliacao">0</span></button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const botoes =document.querySelectorAll(".btn")
+
+        botoes.forEach(function(botao){
+            botao.addEventListener("click",function(){
+                const span = botao.querySelector(".avaliacao");
+                const avaliacaoAtual = parseInt(span.textContent);
+
+                if(botao.classList.contains("like")){
+                    span.textContent = avaliacaoAtual +1;
+                } else if(botao.classList.contains("deslike")){
+                    span.textContent = avaliacaoAtual -1;
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

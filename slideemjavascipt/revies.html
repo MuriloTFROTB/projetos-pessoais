@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            height: 100%;
+            width: 100%;
+        }
+        #person-img{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="container">
+            <div class="title">
+                <h2>Our reviews</h2>
+                <div class="underline"></div>
+            </div>
+            <article class="review">
+                <div class="img-container">
+                    <img src="https://i.pinimg.com/564x/b8/ae/58/b8ae586a10eb8ce75192106be6ad3b02.jpg" id="person-img" alt="">
+                </div>
+                <h4 id="author">Starscream</h4>
+                <p id="job">seeker</p>
+                <p id="info">Starscream é um personagem icônico da franquia Transformers, conhecido por ser um Decepticon ardiloso e ambicioso. Ele é frequentemente retratado como o segundo em comando dos Decepticons, embora sua lealdade a Megatron seja volátil e frequentemente abalada por suas próprias ambições de tomar o controle da facção.</p>
+
+                <div class="button-container">
+                    <button class="prev-btn">voltar</button>
+                    <button class="next-btn">proximo</button>
+                </div>
+                <div class="random-btn">
+                    <button class="random-btn"> random</button>
+                </div>
+
+            </article>
+        </section>
+    </main>
+    <script>
+        const reviews = [
+          {
+            id: 1,
+            name: "Soundwave",
+            job: "warrior",
+            img: "https://i.pinimg.com/564x/f3/0e/95/f30e95de15f87b7e36c04be964aef8f2.jpg",
+            text: "Soundwave é um personagem icônico da franquia Transformers, que inclui séries de televisão, filmes, quadrinhos e brinquedos. Ele é conhecido por ser um dos Decepticons, um grupo de robôs alienígenas que travam uma guerra contra os Autobots, que são seus rivais.",
+          },
+          {
+            id: 2,
+            name: "Megatron",
+            job: "leader",
+            img: "https://i.pinimg.com/564x/83/da/d8/83dad8c22cb0113e86138c35b53c3a42.jpg",
+            text: "Megatron é um dos personagens principais e vilão icônico na franquia Transformers. Ele é um Decepticon, um grupo de robôs alienígenas, e desempenha um papel central como líder e antagonista dessa facção. Sua busca pela supremacia e dominação é o cerne de muitas histórias ao longo das diversas mídias em que a franquia é apresentada, como séries de TV, filmes, quadrinhos e brinquedos.",
+          },
+          {
+            id: 3,
+            name: "Shockwave",
+            job: "Scients",
+            img: "https://i.pinimg.com/564x/bb/b0/08/bbb008d00c99071b83b4032547ccae6d.jpg",
+            text: "Shockwave é outro personagem proeminente na franquia Transformers. Ele é um Decepticon de destaque, conhecido por sua inteligência excepcional e natureza calculista. Sua aparência icônica apresenta uma única lente vermelha em vez de olhos, o que acrescenta um ar de mistério ao seu visual.",
+          }
+        ]; 
+        
+        const img= document.getElementById("person-img");
+        const author= document.getElementById("author");
+        const job= document.getElementById("job");
+        const info= document.getElementById("info");
+
+        const prev = document.querySelector(".prev-btn");
+        const next = document.querySelector(".next-btn");
+
+        const random = document.querySelector(".random-btn");
+
+        let atual = 0 ;
+
+       window.addEventListener("DOMContentLoaded",function(){
+        showPerson(atual);
+       })
+       function showPerson(){
+        const item =reviews[atual];
+        img.src=item.img
+        author.textContent=item.name;
+        job.textContent=item.job;
+        info.textContent=item.text;
+       }
+
+       prev.addEventListener("click", function(){
+        atual++;
+        if(atual > reviews.length -1){
+            atual=0;
+        }
+        console.log(atual)
+        showPerson();
+       })
+
+       next.addEventListener("click" ,function(){
+        atual--;
+        if(atual<0){
+            atual= reviews.length - 1;
+        }
+        showPerson();
+       })
+
+       random.addEventListener("click",function(){
+        // essa linha de codigo aqui embaixo e importante para quando for fazer um random de uma lista
+        atual=Math.floor(Math.random()* reviews.length);
+        console.log(atual)
+        showPerson();
+       })
+    </script>
+</body>
+</html>

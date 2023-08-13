@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my form</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <form action="">
+       <div class="container">
+         <header>
+            <i class='bx bxs-ghost'></i>
+             <h1>Welcome!</h1>
+             <h2>Sign in to your account</h2>
+         </header>
+         <main>
+             <div class="container-nome">
+                 <label for="name">
+                     <h1>Name</h1>
+                     <div class="input-with-icon">
+                         <input type="text" id="name" placeholder="Enter your name">
+                         <i class="bx bx-user"></i>
+                     </div>
+                 </label>
+             </div>
+             <div class="container-senha">
+                 <label for="password">
+                     <h1>Password</h1>
+                     <div class="input-with-icon">
+                         <input type="password" id="password" name="password" placeholder="Enter password">
+                         <i class="bx bx-lock"></i>
+                     </div>
+                 </label>
+             </div>
+             <div class="lembrar-senha">
+                <div class="rescue-account">
+                     <label class="custom-checbox">
+                         <input type="checkbox" name="remember"> 
+                         <span class="checkmark"></span>
+                         Remember me?
+                     </label>
+                     <a href="#">Forgot password?</a>
+                </div>
+             </div>
+             <div class="Sign">
+                 <button id="login">
+                     Sign in <i class="bx bx-arrow-to-right"></i>
+                 </button>
+             </div>
+         </main>
+       </div>
+    </form>
+    <script src="scriptfomr.js"></script>
+</body>
+</html>
