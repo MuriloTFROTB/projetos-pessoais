@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        .container-name{
+
+            position: relative;
+        }
+        #valueName{
+            height: 40px;
+            padding-left: 8px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .placeholder{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            transition: top 0.3s ease-in-out;
+            background-color: white;
+            border: 2px solid white;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="input-name">
+            <h1>Name</h1>
+            <div class="container-name">
+                <input type="text" name="Nome" id="valueName">
+                <label for="Nome" class="placeholder" id="place"> Nome </label>
+            </div>
+        </section>
+    </main>
+    <button id="btn">enviar</button>
+    <span id="retorno"></span>    
+</body>
+<script>
+    const user=[{
+        nome:""                                           
+    }]
+    const Nome=document.getElementById("valueName");
+    const Holder = document.getElementById("place");
+    const button = document.getElementById("btn")
+
+    Nome.addEventListener("focus",function(){
+        Holder.style.top="0px"
+    });
+
+    Nome.addEventListener("blur",function(){
+        if(Nome.value===""){
+            Holder.style.top="50%"
+        }
+    });
+
+    Nome.value=user[0].nome;
+
+    button.addEventListener("click",function(){
+        user[0].nome=Nome.value
+        const relaname=document.getElementById("retorno");
+        relaname.textContent=Nome.value
+    })
+
+</script>
+</html>
